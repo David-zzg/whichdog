@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-img" :style="{'background-image':'url('+data.pic+')'}" >
+        <div class="card-img" :style="{'background-image':path}" >
         </div>
         <div class="font-box">
             {{data.key}}.{{data.title}}
@@ -18,6 +18,9 @@ export default {
     computed:{
         active(){
             return typeof this.select[this.page]!="undefined"&&this.select[this.page]==this.index
+        },
+        path(){
+            return `url(/static/${this.$root.config.path}/options/${parseInt(this.page)+1}_${this.index+1}.png)`
         }
     }
 }
@@ -28,6 +31,7 @@ export default {
 .card{
     width: rem(243px);
     height: rem(243px);
+    vertical-align: middle;
     border-radius:rem(8px);
     display: inline-block;
     margin: rem(25px) rem(30px);
@@ -39,13 +43,14 @@ export default {
         border-radius: 0px;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
     }
     .font-box{
         background:#181d5f;
         height: rem(63px);
         font-size:rem(24px);
         color:#ffffff;
+        text-align: left;
     }
     .card-active{
         position: absolute;

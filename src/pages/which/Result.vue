@@ -3,7 +3,7 @@
         <HeadBar></HeadBar>
         <div class="result-box">
             <span class="ib ricon-decorate"></span>
-            <div class="ib result-img" :style="{'background-image':'url(/static/img.png)'}"></div>
+            <div class="ib result-img" :style="{'background-image':'url(/static/'+$root.config.path+'/options/result_'+data.id+'.png)'}"></div>
             <div class="result-title">{{data.name}}</div>
         </div>
         <div class="result-content">

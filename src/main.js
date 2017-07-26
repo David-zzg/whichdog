@@ -19,7 +19,8 @@ new Vue({
       select:{},
       currentView:'app',
       loading:true,
-      width:20
+      width:20,
+      config:window.PETZMAN
     }
   },
   mounted(){
