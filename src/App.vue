@@ -1,17 +1,24 @@
 <template>
-  <div id="app" :style="{'background-image':'url(/static/'+data.path+'/bg.png)'}">
-    <div id="bg">
-      <router-view></router-view>
-      <span class="ricon-left-bottom"></span>
-      <span class="ricon-left-bottom reverse"></span>
+  <div>
+    <Loading v-show="$root.loading"></Loading>
+    <div id="app" :style="{'background-image':'url(/static/'+data.path+'/bg.png)'}">
+      <div id="bg">
+        <router-view></router-view>
+        <span class="ricon-left-bottom"></span>
+        <span class="ricon-left-bottom reverse"></span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import "@static/sprite_rem.css";
+import Loading from "@pages/Loading"
 export default {
   name: 'app',
+  components:{
+    Loading
+  },
   data(){
     return {
       data:window.PETZMAN

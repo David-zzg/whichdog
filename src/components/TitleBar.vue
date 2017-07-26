@@ -1,6 +1,6 @@
 <template>
     <header class="flex flex-column flex-center">
-        <div>
+        <div id="target">
             解锁你的狗生
         </div>
         <div>
