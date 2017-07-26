@@ -7,13 +7,7 @@ body{
     src: url('/static/WenYue-XinQingNianTi-NC-W8.otf');
 }
 
-@font-face {font-family: 'webfont';
-  src: url('//at.alicdn.com/t/kduutfsuji2dfgvi.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/kduutfsuji2dfgvi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/kduutfsuji2dfgvi.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/kduutfsuji2dfgvi.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/kduutfsuji2dfgvi.svg#思源黑体-极细') format('svg'); /* iOS 4.1- */
-}
+
 @function rem($px, $base-font-size: 750px) {
     @return ($px * 10 / $base-font-size) * 1rem;
 }
