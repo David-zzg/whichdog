@@ -30,10 +30,9 @@ body{
   top: 0px;
   left: 0px;
   width: 100%;
-  position: fixed;
-
+  // position: fixed;
+  min-height: rem(1220px);
   
-  height: 100%;
   // background-image: url('/static/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
