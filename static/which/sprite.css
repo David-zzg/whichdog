@@ -1,0 +1,112 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-banner {
+  background-image: url(/static/which/sprite.png);
+  background-position: 0px 0px;
+  width: 290px;
+  height: 222px;
+}
+.icon-box {
+  background-image: url(/static/which/sprite.png);
+  background-position: 0px -232px;
+  width: 167px;
+  height: 56px;
+}
+.icon-decorate {
+  background-image: url(/static/which/sprite.png);
+  background-position: -300px 0px;
+  width: 286px;
+  height: 216px;
+}
+.icon-dog {
+  background-image: url(/static/which/sprite.png);
+  background-position: -427px -232px;
+  width: 18px;
+  height: 21px;
+}
+.icon-left-bottom {
+  background-image: url(/static/which/sprite.png);
+  background-position: 0px -298px;
+  width: 49px;
+  height: 183px;
+}
+.icon-left-top {
+  background-image: url(/static/which/sprite.png);
+  background-position: -59px -361px;
+  width: 42px;
+  height: 46px;
+}
+.icon-star {
+  background-image: url(/static/which/sprite.png);
+  background-position: -59px -298px;
+  width: 48px;
+  height: 53px;
+}
+.icon-tick {
+  background-image: url(/static/which/sprite.png);
+  background-position: -117px -298px;
+  width: 52px;
+  height: 40px;
+}
+.icon-top {
+  background-image: url(/static/which/sprite.png);
+  background-position: -177px -232px;
+  width: 240px;
+  height: 28px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .icon-banner {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-box {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-decorate {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-dog {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-left-bottom {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-left-top {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-star {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-tick {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+  .icon-top {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 481px;
+  }
+}

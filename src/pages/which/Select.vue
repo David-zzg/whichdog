@@ -1,0 +1,119 @@
+<template>
+    <div class="select-box">
+        <TitleBar></TitleBar>
+        <div class="subtitle">
+            《遇到以下问题你会作出如何选择？》
+        </div>
+        <div class="question">
+            {{parseInt(page)+1}}.{{data.question}}
+        </div>
+        <div class="card-box">
+            <Card  v-for="(item,index) in data.options" :key="index" :data="item" :index="index" :page="page" :select="$root.select" @click.native="redirect(index)"></Card>
+        </div>
+        <div class="nav">
+            <span class="ib ricon-dog " v-for="(item ,index) in max" :key="index" :class="{'active':index==page}" @click="nav(index)"></span>
+        </div>
+    </div>
+</template>
+<script>
+import TitleBar from "../../components/TitleBar.vue"
+import Card from "../../components/Card.vue"
+export default {
+    components:{
+        TitleBar,Card
+    },
+    data(){
+        var id = this.$route.params.id
+        return {
+            // data:window.PETZMAN.options[id],
+            // page:parseInt(id)+1,
+            max:window.PETZMAN.options.length
+        }
+    },
+    computed:{
+        //获取当页的选项
+        data(){
+            return window.PETZMAN.options[this.page]
+        },
+        //获取页数
+        page(){
+            var id = this.$route.params.id
+            return id
+        }
+    },
+    methods:{
+        nav(index){
+            this.go(index)
+        },
+        isFinished(){
+            var length = 0
+            for(var i in this.$root.select){
+                length++
+            }
+            return length==this.max
+        },
+        go(index){
+            this.$router.push({
+                path:'/select/'+index
+            })
+        },
+        redirect(index){
+            this.$root.select=Object.assign({},this.$root.select,{
+                [this.page]:index
+            })
+            setTimeout(()=>{
+                var next = parseInt(this.page)+1
+                //切换到下一页
+                if(this.isFinished()){
+                    this.$router.push({
+                        path:'/result'
+                    })
+                    return
+                }
+                if(next<this.max){
+                    //没做完
+                    this.go(next)
+                }else{
+                    //做完
+                }
+            }, 500);
+            
+            // console.log(this.$root)
+            // this.$root
+        }
+    }
+}
+</script>
+<style lang="scss">
+@import "../../assets/main.scss";
+.select-box{
+    padding-top: rem(20px);
+}
+.subtitle{
+    margin-top: rem(33px);
+    font-size:rem(39px);
+    color:#c1142a;
+    text-align:center;
+}
+.question{
+    font-size:rem(36px);
+    color:#282828;
+    text-align:left;
+    width:rem(630px);
+    margin: auto;
+    padding-top: rem(50px);
+}
+.card-box{
+    text-align: center;
+}
+.nav{
+    text-align: center;
+    span{
+        transition: all 200ms;
+        margin: rem(30px);
+        &.active{
+            transform: scale(1.5);
+        }
+    }
+}
+</style>
