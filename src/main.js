@@ -29,8 +29,10 @@ new Vue({
     var list = []
     list.push(new Promise((resolve)=>{
         var interval = setInterval(()=>{
+        console.log(target.clientHeight)
         if(index++>1000||last!=target.clientHeight){
             clearInterval(interval)
+            console.log('end')
             resolve()
         }
       },100)
@@ -50,7 +52,10 @@ new Vue({
     list.push(new Promise((resolve)=>{
       var img = new Image()
       img.src="/static/"+window.PETZMAN.path+"/bg.png"
-      img.onload = resolve
+      img.onload = ()=>{
+        console.log('img load')
+        resolve()
+      }
     }))
     Promise.all(list).then(()=>{
       this.width = 100
