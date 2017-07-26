@@ -23,13 +23,13 @@ new Vue({
     }
   },
   mounted(){
+    window.app = this.$root
     var target = document.getElementById('target')
     var last = target.clientHeight
     var index = 0
     var list = []
     list.push(new Promise((resolve)=>{
         var interval = setInterval(()=>{
-        console.log(target.clientHeight)
         if(index++>1000||last!=target.clientHeight){
             clearInterval(interval)
             console.log('capture end')
@@ -38,7 +38,7 @@ new Vue({
       },100)
     }))
     var widthInterval = setInterval(()=>{
-      if(this.loading = true&&this.width<80){
+      if(this.loading == true&&this.width<80){
         this.width+=10
       }else{
         clearInterval(widthInterval)
@@ -58,6 +58,7 @@ new Vue({
       }
     }))
     Promise.all(list).then(()=>{
+      console.log('all end')
       this.width = 100
       setTimeout(()=>{
         this.loading = false

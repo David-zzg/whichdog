@@ -5,11 +5,6 @@
         </div>
     </div>
 </template>
-<script>
-export default {
-    props:['width']
-}
-</script>
 <style lang="scss">
 @import "../../assets/main.scss";
     .loading{
