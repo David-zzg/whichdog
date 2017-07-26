@@ -50,6 +50,7 @@ export default {
         height: rem(63px);
         font-size:rem(24px);
         color:#ffffff;
+        padding: 0px rem(10px);
         text-align: left;
     }
     .card-active{
