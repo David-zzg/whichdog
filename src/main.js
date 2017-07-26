@@ -32,7 +32,7 @@ new Vue({
         console.log(target.clientHeight)
         if(index++>1000||last!=target.clientHeight){
             clearInterval(interval)
-            console.log('end')
+            console.log('capture end')
             resolve()
         }
       },100)
