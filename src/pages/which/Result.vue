@@ -9,7 +9,7 @@
         <div class="result-content">
             {{data.desc}}
         </div>
-        <div class="start-btn ricon-box" @click="show=!show">
+        <div class="start-btn ricon-box" style="margin-top:0px" @click="show=!show">
             分享好友
         </div>
         <div class="start-btn ricon-box" @click="reload">
@@ -108,7 +108,7 @@ export default {
     color:#333333;
     margin-top: rem(35px);
     text-align:center;
-    height: rem(170px);
+    height: rem(210px);
 }
 .start-btn{
     font-size:rem(64px);
