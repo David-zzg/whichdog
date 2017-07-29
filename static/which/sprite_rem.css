@@ -24,7 +24,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .ricon-box {
   background-image: url(/static/which/sprite.png);
-  background-position: 0rem -6.1866666666666665rem;
+  background-position: -2.8533333333333335rem -6.1866666666666665rem;
   width: 4.453333333333333rem;
   height: 1.4933333333333334rem;
 }
@@ -36,37 +36,43 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .ricon-dog {
   background-image: url(/static/which/sprite.png);
-  background-position: -11.386666666666667rem -6.1866666666666665rem;
+  background-position: -14.24rem -6.1866666666666665rem;
   width: 0.48rem;
   height: 0.56rem;
 }
 .ricon-left-bottom {
   background-image: url(/static/which/sprite.png);
-  background-position: 0rem -7.946666666666666rem;
+  background-position: 0rem -10.186666666666667rem;
   width: 1.3066666666666666rem;
   height: 4.88rem;
 }
 .ricon-left-top {
   background-image: url(/static/which/sprite.png);
-  background-position: -1.5733333333333333rem -9.626666666666667rem;
+  background-position: -1.5733333333333333rem -10.186666666666667rem;
   width: 1.12rem;
   height: 1.2266666666666666rem;
 }
+.ricon-point {
+  background-image: url(/static/which/sprite.png);
+  background-position: 0rem -6.1866666666666665rem;
+  width: 2.5866666666666664rem;
+  height: 3.7333333333333334rem;
+}
 .ricon-star {
   background-image: url(/static/which/sprite.png);
-  background-position: -1.5733333333333333rem -7.946666666666666rem;
+  background-position: -2.8533333333333335rem -7.946666666666666rem;
   width: 1.28rem;
   height: 1.4133333333333333rem;
 }
 .ricon-tick {
   background-image: url(/static/which/sprite.png);
-  background-position: -3.12rem -7.946666666666666rem;
+  background-position: -4.4rem -7.946666666666666rem;
   width: 1.3866666666666667rem;
   height: 1.0666666666666667rem;
 }
 .ricon-top {
   background-image: url(/static/which/sprite.png);
-  background-position: -4.72rem -6.1866666666666665rem;
+  background-position: -7.573333333333333rem -6.1866666666666665rem;
   width: 6.4rem;
   height: 0.7466666666666667rem;
 }
@@ -75,38 +81,42 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
        (min-resolution: 192dpi) {
   .ricon-banner {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-box {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-decorate {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-dog {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-left-bottom {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-left-top {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
+  }
+  .ricon-point {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-star {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-tick {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
   .ricon-top {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 15.626666666666667rem 12.826666666666666rem;
+    background-size: 15.626666666666667rem 15.066666666666666rem;
   }
 }

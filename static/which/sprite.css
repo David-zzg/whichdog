@@ -24,7 +24,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-box {
   background-image: url(/static/which/sprite.png);
-  background-position: 0px -232px;
+  background-position: -107px -232px;
   width: 167px;
   height: 56px;
 }
@@ -36,37 +36,43 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-dog {
   background-image: url(/static/which/sprite.png);
-  background-position: -427px -232px;
+  background-position: -534px -232px;
   width: 18px;
   height: 21px;
 }
 .icon-left-bottom {
   background-image: url(/static/which/sprite.png);
-  background-position: 0px -298px;
+  background-position: 0px -382px;
   width: 49px;
   height: 183px;
 }
 .icon-left-top {
   background-image: url(/static/which/sprite.png);
-  background-position: -59px -361px;
+  background-position: -59px -382px;
   width: 42px;
   height: 46px;
 }
+.icon-point {
+  background-image: url(/static/which/sprite.png);
+  background-position: 0px -232px;
+  width: 97px;
+  height: 140px;
+}
 .icon-star {
   background-image: url(/static/which/sprite.png);
-  background-position: -59px -298px;
+  background-position: -107px -298px;
   width: 48px;
   height: 53px;
 }
 .icon-tick {
   background-image: url(/static/which/sprite.png);
-  background-position: -117px -298px;
+  background-position: -165px -298px;
   width: 52px;
   height: 40px;
 }
 .icon-top {
   background-image: url(/static/which/sprite.png);
-  background-position: -177px -232px;
+  background-position: -284px -232px;
   width: 240px;
   height: 28px;
 }
@@ -75,38 +81,42 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
        (min-resolution: 192dpi) {
   .icon-banner {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-box {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-decorate {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-dog {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-left-bottom {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-left-top {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
+  }
+  .icon-point {
+    background-image: url(/static/which/sprite@2x.png);
+    background-size: 586px 565px;
   }
   .icon-star {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-tick {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
   .icon-top {
     background-image: url(/static/which/sprite@2x.png);
-    background-size: 586px 481px;
+    background-size: 586px 565px;
   }
 }

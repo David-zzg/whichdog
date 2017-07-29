@@ -4,12 +4,12 @@
         <div class="result-box">
             <span class="ib ricon-decorate"></span>
             <div class="ib result-img" :style="{'background-image':'url(/static/'+$root.config.path+'/options/result_'+data.id+'.png)'}"></div>
-            <div class="result-title">{{data.name}}</div>
+            <div class="result-title" id="target">{{data.name}}</div>
         </div>
         <div class="result-content">
             {{data.desc}}
         </div>
-        <div class="start-btn ricon-box">
+        <div class="start-btn ricon-box" @click="show=!show">
             分享好友
         </div>
         <div class="start-btn ricon-box" @click="reload">
@@ -19,17 +19,21 @@
             <img src="/static/qr.png"> 
             <div>非正常猫狗研究所</div>
         </div>
+        <Share :show.sync="show"></Share>
     </div>
 </template>
 <script>
 import HeadBar from "../../components/Head.vue"
+import Share from "../../components/Share.vue"
+
 export default {
     components:{
-        HeadBar
+        HeadBar,Share
     },
     data(){
         return {
             point:this.getPoint(),
+            show:false
         }
     },
     methods:{

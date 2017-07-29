@@ -1,7 +1,7 @@
 <template>
     <div class="loading">
         <div class="loading-bar">
-            <div class="loading-inner" :style="{width:$root.width+'%'}"></div>
+            <div class="loading-inner anim" :style="{width:$root.width+'%'}"></div>
         </div>
     </div>
 </template>
@@ -20,7 +20,6 @@
     }
     .loading-inner{
         background: #333;
-        transition: width 200ms;
         width: 0%;
         border-radius: rem(80px);
         height: 100%;

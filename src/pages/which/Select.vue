@@ -57,6 +57,19 @@ export default {
                 path:'/select/'+index
             })
         },
+        //还没有选择的页面
+        getUnSelect(){
+            debugger
+            var index = 0
+            for(var i in this.$root.select){
+                if(index==i){
+                    index++
+                }else{
+                    return index
+                }
+            }
+            return index
+        },
         redirect(index){
             this.$root.select=Object.assign({},this.$root.select,{
                 [this.page]:index
@@ -64,17 +77,15 @@ export default {
             setTimeout(()=>{
                 var next = parseInt(this.page)+1
                 //切换到下一页
-                if(this.isFinished()){
+                if(this.$root.isFinished()){
                     this.$router.push({
                         path:'/result'
                     })
                     return
                 }
-                if(next<this.max){
-                    //没做完
-                    this.go(next)
-                }else{
-                    //做完
+                var p = this.getUnSelect()
+                if(p!==false){
+                    this.go(p)
                 }
             }, 500);
             
