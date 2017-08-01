@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+</head>
+<body>
+    <div style="width: 600px;margin:auto;    padding: 6px;
+    font-size: 20px;
+    font-weight: bold;">总浏览数：<%=total%></div>
+    <div id="main" style="width: 600px;height:400px;margin:auto"></div>
+    <script>
+         var total = <%=total%>;
+         var last = <%-last%>;
+         var x = []
+         var y = []
+         last.forEach(item=>{
+            x.push(item.t)
+            y.push(item.num)
+         })
+        var option = {
+    title: {
+        text: '最近7天数据',
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高浏览','最低浏览']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: x
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value}'
+        }
+    },
+    series: [
+        
+        {
+            name:'浏览数',
+            type:'line',
+            data:y,
+            markPoint: {
+                data: [
+                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'},
+                    [{
+                        symbol: 'none',
+                        x: '90%',
+                        yAxis: 'max'
+                    }, {
+                        symbol: 'circle',
+                        label: {
+                            normal: {
+                                position: 'start',
+                                formatter: '最大值'
+                            }
+                        },
+                        type: 'max',
+                        name: '最高点'
+                    }]
+                ]
+            }
+        }
+    ]
+};
+var myChart = echarts.init(document.getElementById('main'));
+myChart.setOption(option);
+    </script>
+    
+</body>
+</html>

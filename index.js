@@ -7,6 +7,13 @@ var config = require('./project_config')[env].mysql
 var connection = mysql.createConnection(config);
 var redis = require("./redis")
 var wx = require("./wx")//微信🇭相关
+var ejs = require('ejs');
+
+var app = express();
+
+app.engine('html', ejs.renderFile);
+
+app.set("view engine", "html"); 
 
 
 var send = (res,data)=>{
@@ -49,6 +56,39 @@ app.get('/', function (req, res) {
 app.get('/MP_verify_PBmcx1jauuWGYH9s.txt', function (req, res) {
     res.sendFile(path.resolve(__dirname,'./static/MP_verify_PBmcx1jauuWGYH9s.txt'))
 });
+
+app.get('/data',function (req,res) {
+    var name = req.query.name
+    if(!name){
+        sendError(res,'缺少name')
+        return 
+    }
+    //最近七天浏览量
+    var seven = `select count(1) as num,DATE_FORMAT(time,'%Y-%m-%d') as t from activity WHERE name="${name}" GROUP BY t ORDER BY t desc limit 7`
+    //总浏览
+    var total_sql = `select id from  activity where name = "${name}"`
+    var list = []
+    list.push(new Promise((resolve)=>{
+        query(res,seven,function (result) {
+            resolve(result)
+        })
+    }))
+    list.push(new Promise((resolve)=>{
+        query(res,total_sql,function (result) {
+            resolve(result)
+        })
+    }))
+    Promise.all(list).then(data=>{
+        var seven_result = data[0]
+        var total_result = data[1].length
+        var final = {
+            total:total_result,
+            last:JSON.stringify(seven_result)
+        }
+        // send(res,final)
+        res.render('data',final)
+    })
+})
 
 
 app.get('/record', function (req, res) {
