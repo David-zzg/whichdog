@@ -82,7 +82,11 @@ new Vue({
     list.push(new Promise((resolve)=>{
       loadScript('http://res.wx.qq.com/open/js/jweixin-1.2.0.js',()=>{
         var host = this.config.host
-        get(`/getwx?url=${host}`,data=>{
+        var url = window.location.toString()
+        var url = window.location.toString().replace(/#.*$/,'')
+        console.log(url)
+        console.log(host)
+        get(`/getwx?url=${encodeURIComponent(url)}`,data=>{
             wx.config(Object.assign({},data,{
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出
                 jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
