@@ -50,6 +50,9 @@ app.use(express.static('dist'));
 app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname,'./dist/index.html'))
 });
+app.get('/MP_verify_PBmcx1jauuWGYH9s.txt', function (req, res) {
+    res.sendFile(path.resolve(__dirname,'./static/MP_verify_PBmcx1jauuWGYH9s.txt'))
+});
 
 
 app.get('/record', function (req, res) {
