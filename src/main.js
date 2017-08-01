@@ -78,13 +78,14 @@ new Vue({
         resolve()
       }
     }))
+    console.log(process.env.NODE_ENV)
     //加载微信sdk
     list.push(new Promise((resolve)=>{
       loadScript('http://res.wx.qq.com/open/js/jweixin-1.2.0.js',()=>{
         
         get(`/getwx?url=${window.location.toString().replace(/#.*$/,'')}`,data=>{
             wx.config(Object.assign({},data,{
-                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出
+                debug: process.env.NODE_ENV=="development"?true:false, // 开启调试模式,调用的所有api的返回值会在客户端alert出
                 jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             }));
               wx.ready(()=>{
