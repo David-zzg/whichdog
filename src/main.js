@@ -79,10 +79,10 @@ new Vue({
       }
     }))
     //加载微信sdk
-    // list.push(new Promise((resolve)=>{
-      // loadScript('http://res.wx.qq.com/open/js/jweixin-1.2.0.js',()=>{
-        
-        get(`/getwx?url=${window.location.toString().replace(/#.*$/,'')}`,data=>{
+    list.push(new Promise((resolve)=>{
+      loadScript('http://res.wx.qq.com/open/js/jweixin-1.2.0.js',()=>{
+        var host = this.config.host
+        get(`/getwx?url=${host}`,data=>{
             wx.config(Object.assign({},data,{
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出
                 jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
@@ -91,16 +91,16 @@ new Vue({
                   var obj = {
                     title: document.title, // 分享标题
                       desc:this.config.desc,
-                      link: 'http://activity.petzman.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                      imgUrl: 'http://activity.petzman.com/static/share.png', // 分享图标
+                      link: host, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                      imgUrl: host+'/static/share.png', // 分享图标
                   }
                   wx.onMenuShareTimeline(Object.assign({},obj));
                   wx.onMenuShareAppMessage(Object.assign({},obj));
               });
         })
-        // resolve()
-      // })
-    // }))
+        resolve()
+      })
+    }))
     Promise.all(list).then(()=>{
       console.log('all end')
       this.width = 100

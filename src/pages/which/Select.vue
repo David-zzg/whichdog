@@ -11,7 +11,9 @@
             <Card  v-for="(item,index) in data.options" :key="index" :data="item" :index="index" :page="page" :select="$root.select" @click.native="redirect(index)"></Card>
         </div>
         <div class="nav">
-            <span class="ib ricon-dog " v-for="(item ,index) in max" :key="index" :class="{'active':index==page}" @click="nav(index)"></span>
+            <span class="ib ricon-dog " v-for="(item ,index) in max" :key="index" :class="{'active':index==page}" @click="nav(index)">
+                <span class="font_20">{{typeof $root.select[index]!="undefined"?(index+1):'?'}}</span>
+            </span>
         </div>
     </div>
 </template>
@@ -39,6 +41,9 @@ export default {
         page(){
             var id = this.$route.params.id
             return id
+        },
+        hasActive(){
+            return this.$root.select[this.page]?true:false
         }
     },
     methods:{
@@ -108,6 +113,7 @@ export default {
 }
 .question{
     font-size:rem(36px);
+    height: rem(140px);
     color:#282828;
     text-align:left;
     width:rem(630px);
@@ -119,9 +125,17 @@ export default {
 }
 .nav{
     text-align: center;
-    span{
+    .ricon-dog{
         transition: all 200ms;
         margin: rem(30px);
+        position: relative;
+        &>span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+        }
         &.active{
             transform: scale(1.5);
         }
