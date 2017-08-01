@@ -3,9 +3,26 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import {loadScript} from './util'
 
 Vue.config.productionTip = false
-
+var get = (url,callback)=>{
+    var xml = new XMLHttpRequest()
+    
+    xml.onreadystatechange = ()=>{
+      if(xml.readyState==4&&xml.status==200){
+        try{
+          var json = JSON.parse(xml.responseText)
+          callback&&callback(json.data)
+        }catch(e){
+          callback&&callback(xml.responseText)
+        }
+        
+      }
+    }
+    xml.open("GET", url, false);
+    xml.send(null);
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -60,6 +77,29 @@ new Vue({
         console.log('img load')
         resolve()
       }
+    }))
+    //加载微信sdk
+    list.push(new Promise((resolve)=>{
+      loadScript('http://res.wx.qq.com/open/js/jweixin-1.2.0.js',()=>{
+        
+        get(`/getwx?url=${window.location.toString().replace(/#.*$/,'')}`,data=>{
+            wx.config(Object.assign({},data,{
+                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出
+                jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            }));
+              wx.ready(()=>{
+                  var obj = {
+                    title: document.title, // 分享标题
+                      desc:this.config.desc,
+                      link: 'http://activity.petzman.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                      imgUrl: 'http://activity.petzman.com/static/share.png', // 分享图标
+                  }
+                  wx.onMenuShareTimeline(Object.assign({},obj));
+                  wx.onMenuShareAppMessage(Object.assign({},obj));
+              });
+        })
+        resolve()
+      })
     }))
     Promise.all(list).then(()=>{
       console.log('all end')

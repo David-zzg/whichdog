@@ -3,8 +3,11 @@ const path = require('path')
 var app = express();
 var mysql      = require('mysql');
 var env = require('./env')
-var config = require('./mysql')[env]
+var config = require('./project_config')[env].mysql
 var connection = mysql.createConnection(config);
+var redis = require("./redis")
+var wx = require("./wx")//微信🇭相关
+
 
 var send = (res,data)=>{
     res.send({
@@ -39,13 +42,6 @@ var query = (res,sql,callback)=>{
 }
 
 
-// connection.query('SELECT * from activity', function (error, results, fields) {
-//     if (error) throw error;
-//     var time = results[0].time
-//     var date = new Date(time)
-//     console.log(date);
-//     // connected! 
-// });
 app.use(express.static('dist'));
 app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname,'./dist/index.html'))
@@ -68,6 +64,18 @@ app.get('/record', function (req, res) {
         // connected! 
         res.end("success")
     });
+});
+
+//获取微信参数
+app.get('/getwx', function (req, res) {
+    var q = req.query
+    if(!q.url){
+        sendError(res,'缺少url')
+        return 
+    }
+    wx.getJSSDK(q.url,params=>{
+        send(res,params)
+    })
 });
 
 var server = app.listen(3000, function () {
