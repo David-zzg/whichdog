@@ -3,7 +3,6 @@ var utils = require('./utils')
 var config = require('../config')
 // var file = require('../config/file')
 var file = utils.getProject()
-console.log(file)
 var vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -42,7 +41,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [path.resolve(__dirname,'../src')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
