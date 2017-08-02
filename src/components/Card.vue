@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-img" :style="{'background-image':path}" >
         </div>
-        <div class="font-box">
+        <div class="font-box" :style="{background:color}">
             {{data.key}}.{{data.title}}
         </div>
         <transition name="fade">
@@ -21,6 +21,9 @@ export default {
         },
         path(){
             return `url(/static/${this.$root.config.path}/options/${parseInt(this.page)+1}_${this.index+1}.png)`
+        },
+        color(){
+            return '#'+this.$route.query.color
         }
     }
 }
@@ -29,28 +32,28 @@ export default {
 <style lang="scss">
 @import "../assets/main.scss";
 .card{
-    width: rem(243px);
-    height: rem(243px);
+    width: rem(296px);
+    height: rem(326px);
     vertical-align: middle;
     border-radius:rem(8px);
     display: inline-block;
-    margin: rem(25px) rem(30px);
+    margin: rem(25px) rem(32px);
     overflow: hidden;
     position: relative;
     border-color: transparent;
     .card-img{
-        height: rem(180px);
+        height: rem(219px);
         border-radius: 0px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
     }
     .font-box{
-        background:#181d5f;
-        height: rem(63px);
-        font-size:rem(24px);
+        background:#3a6bee;
+        height: rem(107px);
+        font-size:rem(30px);
         color:#ffffff;
-        padding: 0px rem(10px);
+        padding: rem(13px) rem(10px);
         text-align: left;
     }
     .card-active{

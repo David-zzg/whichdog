@@ -24,7 +24,8 @@
                     开始测试
                 </router-link>
             </div>
-            
+            <span class="ricon-left-bottom"></span>
+            <span class="ricon-left-bottom reverse"></span>
         </div>
     </div>
 </template>

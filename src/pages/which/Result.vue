@@ -20,6 +20,8 @@
             <div>非正常猫狗研究所</div>
         </div>
         <Share :show.sync="show"></Share>
+        <span class="ricon-left-bottom"></span>
+        <span class="ricon-left-bottom reverse"></span>
     </div>
 </template>
 <script>

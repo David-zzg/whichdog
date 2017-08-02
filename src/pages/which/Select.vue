@@ -1,9 +1,9 @@
 <template>
     <div class="select-box">
         <TitleBar></TitleBar>
-        <div class="subtitle">
+        <!-- <div class="subtitle">
             《遇到以下问题你会作出如何选择？》
-        </div>
+        </div> -->
         <div class="question">
             {{parseInt(page)+1}}.{{data.question}}
         </div>
@@ -113,12 +113,12 @@ export default {
 }
 .question{
     font-size:rem(36px);
-    height: rem(140px);
+    height: 2.6em;
     color:#282828;
     text-align:left;
     width:rem(630px);
     margin: auto;
-    padding-top: rem(50px);
+    padding-top: rem(20px);
 }
 .card-box{
     text-align: center;
