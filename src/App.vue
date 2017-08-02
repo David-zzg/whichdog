@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app-box">
     <Loading v-show="$root.loading"></Loading>
     <div id="app" :style="{'background-image':'url(/static/'+data.path+'/bg.png)'}">
       <div id="bg">
@@ -28,6 +28,10 @@ export default {
 
 <style lang="scss">
 @import "./assets/main.scss";
+#app-box{
+  max-width: 600px;
+  margin: auto;
+}
 body{
   margin: 0px;
 }
