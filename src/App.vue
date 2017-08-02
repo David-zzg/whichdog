@@ -28,6 +28,10 @@ export default {
 
 <style lang="scss">
 @import "./assets/main.scss";
+#app-box{
+  max-width: rem(800px);
+  margin: auto;
+}
 body{
   margin: 0px;
 }
