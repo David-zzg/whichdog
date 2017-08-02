@@ -114,7 +114,7 @@ export default {
 .question{
     font-size:rem(36px);
     height: 2.6em;
-    color:#282828;
+    color:#DC2A2A;
     text-align:left;
     width:rem(630px);
     margin: auto;

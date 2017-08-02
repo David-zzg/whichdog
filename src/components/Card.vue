@@ -49,10 +49,10 @@ export default {
         background-size: cover;
     }
     .font-box{
-        background:#3a6bee;
+        background:#DFD9D9;
         height: rem(107px);
         font-size:rem(30px);
-        color:#ffffff;
+        color:#1b1b1b;
         padding: rem(13px) rem(10px);
         text-align: left;
     }

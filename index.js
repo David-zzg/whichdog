@@ -64,7 +64,7 @@ app.get('/data',function (req,res) {
         return 
     }
     //最近七天浏览量
-    var seven = `select count(1) as num,DATE_FORMAT(time,'%Y-%m-%d') as t from activity WHERE name="${name}" GROUP BY t ORDER BY t desc limit 7`
+    var seven = `select count(1) as num,DATE_FORMAT(time,'%Y-%m-%d') as t from activity WHERE name="${name}" GROUP BY t  limit 7`
     //总浏览
     var total_sql = `select id from  activity where name = "${name}"`
     var list = []
